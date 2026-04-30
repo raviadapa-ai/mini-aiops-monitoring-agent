@@ -4,6 +4,7 @@ from processing.metrics import compute_metrics
 from alerting.alerts import check_alerts
 from processing.spike_detection import detect_spikes
 from processing.spike_detection import detect_spikes, merge_spikes
+from analysis.root_cause import find_root_cause
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,11 +22,13 @@ def run_pipeline():
     alerts = check_alerts(metrics)
     raw_spikes = detect_spikes(parsed_logs)
     spikes = merge_spikes(raw_spikes)
+    rca = find_root_cause(parsed_logs, spikes)
     
     return {
         "metrics": metrics,
         "alerts": alerts,
-        "spikes": spikes
+        "spikes": spikes,
+        "root_cause" : rca
    } 
 if __name__ == "__main__":
     run_pipeline()

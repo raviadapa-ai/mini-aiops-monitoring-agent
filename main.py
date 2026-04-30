@@ -2,6 +2,7 @@ from ingestion.log_reader import read_logs
 from processing.parser import parse_log
 from processing.metrics import compute_metrics
 from alerting.alerts import check_alerts
+from processing.spike_detection import detect_spikes
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -17,10 +18,12 @@ def run_pipeline():
 
     metrics = compute_metrics(parsed_logs)
     alerts = check_alerts(metrics)
-
+    spikes = detect_spikes(parsed_logs)
+    
     return {
         "metrics": metrics,
-        "alerts": alerts
+        "alerts": alerts,
+        "spikes": spikes
    } 
 if __name__ == "__main__":
     run_pipeline()

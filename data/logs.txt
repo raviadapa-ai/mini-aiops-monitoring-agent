@@ -102,3 +102,13 @@
 2026-04-30 10:04:18 INFO server2 Request processed in 89ms
 2026-04-30 10:04:19 INFO server3 Request processed in 142ms
 2026-04-30 10:04:20 INFO server1 Request processed in 120ms
+2026-04-30 10:05:01 ERROR server-1 DB timeout
+2026-04-30 10:05:02 ERROR server-1 DB timeout
+2026-04-30 10:05:03 ERROR server-1 DB timeout
+2026-04-30 10:05:04 ERROR server-1 DB timeout
+2026-04-30 10:05:05 ERROR server-1 DB timeout
+2026-04-30 10:05:06 ERROR server-1 DB timeout
+2026-04-30 10:05:07 ERROR server-1 DB timeout
+2026-04-30 10:05:08 ERROR server-1 DB timeout
+2026-04-30 10:05:09 ERROR server-1 DB timeout
+2026-04-30 10:05:10 ERROR server-1 DB timeout

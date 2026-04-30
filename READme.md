@@ -1,21 +1,50 @@
 # 🚀 Mini AIOps Platform
 
-A simple AIOps system that ingests logs, computes metrics, detects anomalies, and exposes results via API.
+A lightweight AIOps system that processes logs, generates metrics, detects incidents (spikes), performs root cause analysis, and produces summarized operational insights.
 
 ---
 
-## 📌 Features
+## 📌 System Overview
 
-### ✅ v1.0 (Initial Release)
+This project simulates a real-world observability pipeline:
 
-* Log ingestion
-* Log parsing
-* Metrics computation
-* Alert generation
+```
+Logs → Parsing → Metrics → Alerts → Spike Detection → Root Cause Analysis → Summary Intelligence
+```
 
-### 🔥 v1.1 (Upgrade)
+---
 
-* Spike detection (window-based anomaly detection)
+## ✨ Features
+
+### ✅ Core (v1.0)
+
+* Log ingestion system
+* Log parsing engine
+* Metrics computation (error rate, latency)
+* Rule-based alerting
+
+---
+
+### 🔥 Incident Detection (v1.1)
+
+* Spike detection using sliding window logic
+* Detection of error bursts in logs
+
+---
+
+### 🧠 RCA Layer (v1.3)
+
+* Root cause extraction from logs
+* Server-level failure mapping
+* Error categorization (timeout, connection, lock issues)
+
+---
+
+### 📊 Intelligence Layer (v1.4)
+
+* Root cause normalization
+* Dominant issue aggregation
+* System-level failure summary
 
 ---
 
@@ -26,16 +55,24 @@ aiops-mini-project/
 │
 ├── ingestion/
 │   └── log_reader.py
+│
 ├── processing/
 │   ├── parser.py
 │   ├── metrics.py
-│   └── spike_detection.py
+│   ├── spike_detection.py
+│
+├── analysis/
+│   └── root_cause.py
+│
 ├── alerting/
 │   └── alerts.py
+│
 ├── api/
 │   └── app.py
+│
 ├── data/
 │   └── logs.txt
+│
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -43,22 +80,20 @@ aiops-mini-project/
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Setup Instructions
 
-### 1. Clone repo
+### 1. Clone repository
 
-```
-git clone https://github.com/<your-username>/aiops-mini-platform.git
-cd aiops-mini-platform
+```bash
+git clone https://github.com/<your-username>/aiops-mini-project.git
+cd aiops-mini-project
 ```
 
 ---
 
 ### 2. Create environment (recommended)
 
-Using Anaconda:
-
-```
+```bash
 conda create -n aiops python=3.10
 conda activate aiops
 ```
@@ -67,17 +102,17 @@ conda activate aiops
 
 ### 3. Install dependencies
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## ▶️ Run Application
+## 🚀 Run the project
 
 ### CLI mode
 
-```
+```bash
 python main.py
 ```
 
@@ -85,7 +120,7 @@ python main.py
 
 ### API mode
 
-```
+```bash
 python -m uvicorn api.app:app --reload
 ```
 
@@ -97,14 +132,14 @@ http://127.0.0.1:8000/analyze
 
 ---
 
-## 📊 Example Output
+## 📊 Sample Output
 
-```
+```json
 {
   "metrics": {
     "total_logs": 100,
-    "error_rate": 20.0,
-    "avg_latency": 115.2
+    "error_rate": 20,
+    "avg_latency": 115.21
   },
   "alerts": [
     "⚠️ Moderate error rate",
@@ -112,41 +147,56 @@ http://127.0.0.1:8000/analyze
   ],
   "spikes": [
     {
-      "start": "2026-04-30 10:05:01",
-      "end": "2026-04-30 10:05:10",
-      "error_rate": 80.0
+      "start": "2026-04-30 10:00:04",
+      "end": "2026-04-30 10:00:12",
+      "error_rate": 40
     }
-  ]
+  ],
+  "root_cause": [
+    {
+      "root_cause": "DB timeout",
+      "affected_server": "server1"
+    }
+  ],
+  "summary": {
+    "dominant_issue": "DB Timeout",
+    "occurrences": 3
+  }
 }
 ```
 
 ---
 
-## 🧠 Concepts Covered
+## 🧠 Key Concepts Learned
 
-* Log ingestion & parsing
+* Log ingestion pipelines
 * Observability metrics
-* Alerting systems
 * Sliding window anomaly detection
+* Root cause analysis (RCA)
+* Data aggregation & summarization
 
 ---
 
-## 🚀 Future Improvements
+## 📈 Version History
 
-* Time-based spike detection
-* AI root cause analysis
-* Real-time streaming (Kafka-style)
-* Dashboard (Streamlit)
-
----
-
-## 🏷️ Versioning
-
-* v1.0 → Basic AIOps pipeline
-* v1.1 → Spike detection added
+* v1.0 → Metrics + Alerts
+* v1.1 → Spike detection
+* v1.2 → Spike deduplication
+* v1.3 → Root cause analysis
+* v1.4 → RCA normalization + summary intelligence
 
 ---
 
-## 📌 Author
+## 🔮 Future Improvements
 
-Ravindra Adapa
+* AI-based root cause classification (LLM)
+* Predictive anomaly detection
+* Auto-remediation system
+* Real-time streaming (Kafka-style ingestion)
+* Dashboard (Streamlit / React)
+
+---
+
+## 👨‍💻 Author
+
+Built as a learning AIOps system for observability engineering practice.

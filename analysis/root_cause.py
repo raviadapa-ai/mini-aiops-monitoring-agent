@@ -30,3 +30,27 @@ def find_root_cause(parsed_logs, spikes):
         })
 
     return results
+
+def normalize_error(msg):
+    msg = msg.lower()
+
+    if "timeout" in msg:
+        return "DB Timeout"
+    if "connection" in msg:
+        return "DB Connection Issue"
+    if "lock" in msg:
+        return "DB Lock Issue"
+
+    return "Other"
+
+def summarize_root_causes(rca_results):
+    normalized = [normalize_error(r["root_cause"]) for r in rca_results]
+
+    counts = Counter(normalized)
+    top_issue = counts.most_common(1)[0]
+
+    return {
+        "dominant_issue": top_issue[0],
+        "occurrences": top_issue[1],
+        "all_issues": counts
+    }

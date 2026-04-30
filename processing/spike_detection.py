@@ -30,3 +30,22 @@ def detect_spikes(parsed_logs, window_size=5, threshold=20):
                 })
 
     return spikes
+
+def merge_spikes(spikes):
+    if not spikes:
+        return []
+
+    merged = []
+    current = spikes[0]
+
+    for next_spike in spikes[1:]:
+        if next_spike["start"] <= current["end"]:
+            # overlap → merge
+            current["end"] = max(current["end"], next_spike["end"])
+            current["error_rate"] = max(current["error_rate"], next_spike["error_rate"])
+        else:
+            merged.append(current)
+            current = next_spike
+
+    merged.append(current)
+    return merged

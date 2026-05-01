@@ -47,6 +47,26 @@ Logs → Parsing → Metrics → Alerts → Spike Detection → Root Cause Analy
 * System-level failure summary
 
 ---
+### 🤖 LLM Incident Reporting (v1.5)
+
+This version introduces an AI-style incident reporting layer.
+
+🧠 LLM Mode
+* Default mode: Fallback / Mock LLM
+* No external API required
+* Deterministic structured output for testing
+
+🔄 Optional Real LLM Support
+* OpenAI / GPT integration supported
+* Requires API key in .env
+* Currently disabled for safe execution
+
+📊 LLM Output Includes
+* What happened
+* Root cause
+* Impact
+* Recommendation
+* Incident brief (clean paragraph format)
 
 ## 🏗️ Project Structure
 
@@ -62,7 +82,8 @@ aiops-mini-project/
 │   ├── spike_detection.py
 │
 ├── analysis/
-│   └── root_cause.py
+│   ├── root_cause.py
+│   └── llm_insight.py
 │
 ├── alerting/
 │   └── alerts.py
@@ -161,6 +182,13 @@ http://127.0.0.1:8000/analyze
   "summary": {
     "dominant_issue": "DB Timeout",
     "occurrences": 3
+  },
+  "llm_report": {
+    "what_happened": "Database failures caused repeated spikes",
+    "root_cause": "Database instability",
+    "impact": "Increased latency and error rate",
+    "recommendation": "Scale DB and optimize queries",
+    "brief": "Between 10:00 and 10:04, multiple error spikes were observed across server1, server2, and server3. The majority of failures were related to database timeouts."
   }
 }
 ```
@@ -174,6 +202,7 @@ http://127.0.0.1:8000/analyze
 * Sliding window anomaly detection
 * Root cause analysis (RCA)
 * Data aggregation & summarization
+* AI-powered incident reporting (LLM layer)
 
 ---
 
@@ -184,15 +213,16 @@ http://127.0.0.1:8000/analyze
 * v1.2 → Spike deduplication
 * v1.3 → Root cause analysis
 * v1.4 → RCA normalization + summary intelligence
+* v1.5 → LLM incident reporting (fallback mode + optional real LLM support)
 
 ---
 
 ## 🔮 Future Improvements
 
-* AI-based root cause classification (LLM)
-* Predictive anomaly detection
+* Context-aware LLM reasoning engine
 * Auto-remediation system
-* Real-time streaming (Kafka-style ingestion)
+* Real-time streaming ingestion
+* Incident prediction layer
 * Dashboard (Streamlit / React)
 
 ---

@@ -2,6 +2,7 @@
 
 A lightweight AIOps system that processes logs, generates metrics, detects incidents (spikes), performs root cause analysis, and produces summarized operational insights based on the sample log.
 
+````
 Sample log
 2026-04-30 10:00:01 INFO server1 Request processed in 110ms
 2026-04-30 10:00:02 INFO server2 Request processed in 95ms
@@ -23,8 +24,8 @@ Sample log
 2026-04-30 10:00:18 INFO server2 Request processed in 101ms
 2026-04-30 10:00:19 INFO server1 Request processed in 108ms
 2026-04-30 10:00:20 INFO server3 Request processed in 125ms
+```
 ---
-
 ## 📌 System Overview
 
 This project simulates a real-world observability pipeline:

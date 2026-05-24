@@ -25,7 +25,9 @@ Sample log
 2026-04-30 10:00:19 INFO server1 Request processed in 108ms
 2026-04-30 10:00:20 INFO server3 Request processed in 125ms
 ```
+
 ---
+
 ## 📌 System Overview
 
 This project simulates a real-world observability pipeline:

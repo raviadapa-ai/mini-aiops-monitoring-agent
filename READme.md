@@ -4,7 +4,7 @@ A lightweight AIOps system that processes logs, generates metrics, detects incid
 
 ---
 
-````
+```
 Sample log
 2026-04-30 10:00:01 INFO server1 Request processed in 110ms
 2026-04-30 10:00:02 INFO server2 Request processed in 95ms

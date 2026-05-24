@@ -1,7 +1,28 @@
 # 🚀 Mini AIOps Platform
 
-A lightweight AIOps system that processes logs, generates metrics, detects incidents (spikes), performs root cause analysis, and produces summarized operational insights.
+A lightweight AIOps system that processes logs, generates metrics, detects incidents (spikes), performs root cause analysis, and produces summarized operational insights based on the sample log.
 
+Sample log
+2026-04-30 10:00:01 INFO server1 Request processed in 110ms
+2026-04-30 10:00:02 INFO server2 Request processed in 95ms
+2026-04-30 10:00:03 INFO server3 Request processed in 130ms
+2026-04-30 10:00:04 ERROR server1 Database timeout
+2026-04-30 10:00:05 INFO server2 Request processed in 102ms
+2026-04-30 10:00:06 INFO server3 Request processed in 98ms
+2026-04-30 10:00:07 INFO server1 Request processed in 115ms
+2026-04-30 10:00:08 CRITICAL server2 Service crashed
+2026-04-30 10:00:09 INFO server3 Request processed in 120ms
+2026-04-30 10:00:10 INFO server1 Request processed in 140ms
+2026-04-30 10:00:11 ERROR server3 Cache miss storm
+2026-04-30 10:00:12 INFO server2 Request processed in 90ms
+2026-04-30 10:00:13 INFO server1 Request processed in 105ms
+2026-04-30 10:00:14 INFO server3 Request processed in 100ms
+2026-04-30 10:00:15 INFO server2 Request processed in 92ms
+2026-04-30 10:00:16 ERROR server1 Connection reset
+2026-04-30 10:00:17 INFO server3 Request processed in 135ms
+2026-04-30 10:00:18 INFO server2 Request processed in 101ms
+2026-04-30 10:00:19 INFO server1 Request processed in 108ms
+2026-04-30 10:00:20 INFO server3 Request processed in 125ms
 ---
 
 ## 📌 System Overview

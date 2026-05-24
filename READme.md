@@ -1,6 +1,8 @@
 # 🚀 Mini AIOps Platform
-
+---
 A lightweight AIOps system that processes logs, generates metrics, detects incidents (spikes), performs root cause analysis, and produces summarized operational insights based on the sample log.
+
+---
 
 ````
 Sample log
